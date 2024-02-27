@@ -5,7 +5,10 @@ import cors from "cors";
 const app = express();
 const PORT = 4000;
 let mongoURL;
+console.log("Environment", process.env.ENV);
+
 if (process.env.ENV === 'Docker') {
+  console.log("Docker environment detected");
 mongoURL = 'mongodb://mongodb:27017';
 } else {
 mongoURL = 'mongodb://127.0.0.1:27017';
