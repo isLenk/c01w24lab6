@@ -1,9 +1,18 @@
 services:
+  # backend:
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile_backend
+    #   target: backend
+    # ports:
+    # - "4000:4000"
+    # environment:
+    # - ENV=Docker
+    # depends_on:
+    # - mongodb
+
   backend:
-    build:
-      context: .
-      dockerfile: Dockerfile_backend
-      target: backend
+    image: lancedrinksmilk/quirknotes_backend:latest
     ports:
     - "4000:4000"
     environment:
@@ -17,13 +26,22 @@ services:
     - "27017:27017"
 
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile_frontend
-      target: frontend
+    image: lancedrinksmilk/quirknotes_frontend:latest
     ports:
     - "3000:3000"
     environment:
     - ENV=Docker
     depends_on:
     - backend
+    
+  # frontend:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile_frontend
+  #     target: frontend
+  #   ports:
+  #   - "3000:3000"
+  #   environment:
+  #   - ENV=Docker
+  #   depends_on:
+  #   - backend
