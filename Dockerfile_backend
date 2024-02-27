@@ -13,9 +13,6 @@ RUN npm install
 # Copy backend source code
 COPY quirknotes/backend ./
 
-# Build backend
-RUN npm run build
-
 # Use a lightweight webserver to serve backend assets
 FROM nginx:alpine AS webserver
 
@@ -23,7 +20,7 @@ FROM nginx:alpine AS webserver
 WORKDIR /usr/share/nginx/html
 
 # Copy backend build from backend stage to nginx directory
-COPY --from=backend /app/quirknotes/backend/build ./
+COPY --from=backend /app/quirknotes/backend/ ./
 
 # Expose port 3000 to serve the backend
 EXPOSE 3000
