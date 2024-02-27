@@ -14,8 +14,6 @@ services:
     image: lancedrinksmilk/quirknotes_backend:latest
     ports:
     - "4000:4000"
-    environment:
-    - ENV=Docker
     depends_on:
     - mongodb
 
