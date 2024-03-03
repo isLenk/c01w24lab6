@@ -8,7 +8,6 @@ let mongoURL;
 
 
 if (process.env.ENV === 'Docker') {
-  console.log("Docker environment detected");
 mongoURL = 'mongodb://mongodb:27017';
 } else {
 mongoURL = 'mongodb://127.0.0.1:27017';
@@ -36,7 +35,6 @@ connectToMongo();
 
 // Open Port
 app.listen(PORT, () => {
-    console.log("ENVIRONEMNTETET", process.env.ENV);
     console.log(`Server is running on http://localhost:${PORT}`);
 
   });
