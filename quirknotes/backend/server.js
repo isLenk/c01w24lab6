@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 const PORT = 4000;
 let mongoURL;
-console.log("Environment", process.env.ENV);
+
 
 if (process.env.ENV === 'Docker') {
   console.log("Docker environment detected");
@@ -23,7 +23,8 @@ async function connectToMongo() {
 
   try {
     await client.connect();
-    console.log("Connected to MongoDB");
+    console.log("Connected to MongoDB??");
+
 
     db = client.db(dbName);
   } catch (error) {
@@ -35,7 +36,9 @@ connectToMongo();
 
 // Open Port
 app.listen(PORT, () => {
+    console.log("ENVIRONEMNTETET", process.env.ENV);
     console.log(`Server is running on http://localhost:${PORT}`);
+
   });
 
 app.use(cors());

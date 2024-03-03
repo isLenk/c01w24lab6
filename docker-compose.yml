@@ -10,17 +10,20 @@ services:
   #   - ENV=Docker
   #   depends_on:
   #   - mongodb
-  backend:
-    image: lancedrinksmilk/quirknotes_backend:latest
-    ports:
-    - "4000:4000"
-    depends_on:
-    - mongodb
 
   mongodb:
     image: mongo:latest
     ports:
     - "27017:27017"
+
+  backend:
+    image: lancedrinksmilk/quirknotes_backend:latest
+    ports:
+    - "4000:4000"
+    environment:
+    - ENV=Docker
+    depends_on:
+    - mongodb
 
   # frontend:
   #   image: lancedrinksmilk/quirknotes_frontend:latest
