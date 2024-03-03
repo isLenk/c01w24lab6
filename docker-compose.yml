@@ -16,9 +16,7 @@ services:
   frontend:
     image: lancedrinksmilk/quirknotes_frontend:latest
     ports:
-    - "3000:3000"
-    environment:
-    - ENV=Docker
+    - "3000:80"
     depends_on:
-    - backend
+    - mongodb
     
